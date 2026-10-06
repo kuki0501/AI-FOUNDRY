@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="AI FOUNDRY - Discover the best AI tools for coding, writing, image generation, video, research, productivity and more.">
+
+  <title>AI FOUNDRY — AI Tools Directory</title>
+
+  <style>
+    :root {
+      --bg: #070812;
+      --card: #101322;
+      --card-hover: #15192d;
+      --text: #f5f7ff;
+      --muted: #969db7;
+      --border: rgba(255,255,255,.09);
+      --purple: #7c5cff;
+      --blue: #25d9ff;
+      --pink: #ff4ecd;
+      --green: #42e6a4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(124,92,255,.25), transparent 35%),
+        radial-gradient(circle at 90% 5%, rgba(37,217,255,.15), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,8,18,.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: conic-gradient(
+        from 210deg,
+        var(--blue),
+        var(--purple),
+        var(--pink),
+        var(--blue)
+      );
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 30px rgba(124,92,255,.5);
+    }
+
+    .logo::after {
+      content: "AI";
+      font-size: 11px;
+      font-weight: bold;
+      width: 27px;
+      height: 27px;
+      border-radius: 8px;
+      background: var(--bg);
+      display: grid;
+      place-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .submit-btn {
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,.05);
+      font-weight: bold;
+    }
+
+    /* HERO */
+
+    .hero {
+      text-align: center;
+      padding: 90px 0 50px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 50px;
+      background: rgba(124,92,255,.1);
+      border: 1px solid rgba(124,92,255,.35);
+      color: #c9c0ff;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .online-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin: 25px 0 20px;
+    }
+
+    h1 span {
+      background: linear-gradient(
+        100deg,
+        white,
+        #a693ff,
+        #4de6ff
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* SEARCH */
+
+    .search-container {
+      max-width: 750px;
+      margin: 35px auto 0;
+      position: relative;
+    }
+
+    .search-container input {
+      width: 100%;
+      height: 62px;
+      padding: 0 55px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(15,18,34,.95);
+      color: white;
+      font-size: 15px;
+      outline: none;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+
+    .search-container input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px rgba(124,92,255,.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      top: 21px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .shortcut {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      padding: 7px 9px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* TOOLBAR */
+
+    .toolbar {
+      margin: 35px 0 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .category {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      padding: 9px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .category:hover,
+    .category.active {
+      color: white;
+      background: rgba(124,92,255,.15);
+      border-color: rgba(124,92,255,.6);
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* GRID */
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+
+    .tool-card {
+      min-height: 280px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.015)
+        );
+      display: flex;
+      flex-direction: column;
+      transition: .25s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      background: var(--card-hover);
+      border-color: rgba(124,92,255,.45);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .tool-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      margin-bottom: 18px;
+      background: rgba(124,92,255,.15);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .tool-card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 5px 8px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      color: #b5bdd5;
+    }
+
+    .tool-bottom {
+      margin-top: auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .visit {
+      color: #d9d2ff;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .visit:hover {
+      text-decoration: underline;
+    }
+
+    .empty {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 60px;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: 20px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+      .tools-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media(max-width:600px) {
+      .container {
+        width: calc(100% - 22px);
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      h1 {
+        font-size: 50px;
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .submit-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+  <div class="container">
+    <nav>
+
+      <a href="#" class="brand">
+        <div class="logo"></div>
+        AI FOUNDRY
+      </a>
+
+      <div class="nav-links">
+        <a href="#tools">Tools</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+      </div>
+
+      <a class="submit-btn"
+         href="mailto:hello@example.com?subject=Submit AI Tool">
+        + Submit Tool
+      </a>
+
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="badge">
+      <span class="online-dot"></span>
+      The AI Tools Directory
+    </div>
+
+    <h1>
+      Build smarter with <span>AI.</span>
+    </h1>
+
+    <p class="hero-description">
+      Discover powerful AI tools for creating, coding, researching,
+      designing, automating, and getting more done.
+    </p>
+
+    <!-- SEARCH -->
+
+    <div class="search-container">
+
+      <span class="search-icon">⌕</span>
+
+      <input
+        id="search"
+        type="text"
+        placeholder="Search AI tools, categories, or use cases..."
+      >
+
+      <span class="shortcut">/</span>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+      <div class="stat">
+        <strong id="toolCount">0</strong>
+        <span>Curated AI Tools</span>
+      </div>
+
+      <div class="stat">
+        <strong>10+</strong>
+        <span>Categories</span>
+      </div>
+
+      <div class="stat">
+        <strong>FREE</strong>
+        <span>Discover & Explore</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TOOLS -->
+
+<section class="container" id="tools">
+
+  <div class="toolbar">
+
+    <div class="categories" id="categories"></div>
+
+    <div class="result-count" id="resultCount"></div>
+
+  </div>
+
+  <div class="tools-grid" id="toolsGrid"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="about">
+
+  <div class="container">
+
+    <div class="footer-content">
+
+      <div>
+        <strong style="color:white">
+          AI FOUNDRY
+        </strong>
+        — Your launchpad for AI.
+      </div>
+
+      <div>
+        © 2026 AI FOUNDRY
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+const tools = [
+
+  {
+    name: "ChatGPT",
+    icon: "✦",
+    category: "Chat",
+    description:
+      "AI assistant for writing, brainstorming, analysis, coding and everyday tasks.",
+    tags: ["Assistant","Writing"],
+    price: "Free + Paid",
+    url: "https://chatgpt.com/"
+  },
+
+  {
+    name: "Claude",
+    icon: "◈",
+    category: "Chat",
+    description:
+      "AI assistant for writing, analysis, coding and long-context conversations.",
+    tags: ["Assistant","Analysis"],
+    price: "Free + Paid",
+    url: "https://claude.ai/"
+  },
+
+  {
+    name: "Gemini",
+    icon: "✦",
+    category: "Chat",
+    description:
+      "Google's AI assistant for multimodal questions, writing and productivity.",
+    tags: ["Assistant","Multimodal"],
+    price: "Free + Paid",
+    url: "https://gemini.google.com/"
+  },
+
+  {
+    name: "Perplexity",
+    icon: "⌕",
+    category: "Research",
+    description:
+      "AI-powered search and answer engine designed for research.",
+    tags: ["Search","Research"],
+    price: "Free + Paid",
+    url: "https://www.perplexity.ai/"
+  },
+
+  {
+    name: "NotebookLM",
+    icon: "N",
+    category: "Research",
+    description:
+      "Research assistant that works with your own documents and sources.",
+    tags: ["Research","Notes"],
+    price: "Free",
+    url: "https://notebooklm.google.com/"
+  },
+
+  {
+    name: "Midjourney",
+    icon: "◉",
+    category: "Image",
+    description:
+      "Create artistic and realistic AI-generated images from text prompts.",
+    tags: ["Art","Images"],
+    price: "Paid",
+    url: "https://www.midjourney.com/"
+  },
+
+  {
+    name: "Adobe Firefly",
+    icon: "✺",
+    category: "Image",
+    description:
+      "Generate and edit creative images and visual assets using AI.",
+    tags: ["Design","Images"],
+    price: "Free + Paid",
+    url: "https://firefly.adobe.com/"
+  },
+
+  {
+    name: "Ideogram",
+    icon: "I",
+    category: "Image",
+    description:
+      "AI image generation with a strong focus on typography and design.",
+    tags: ["Images","Design"],
+    price: "Free + Paid",
+    url: "https://ideogram.ai/"
+  },
+
+  {
+    name: "Canva AI",
+    icon: "C",
+    category: "Design",
+    description:
+      "Create presentations, graphics, social posts and designs with AI.",
+    tags: ["Design","Content"],
+    price: "Free + Paid",
+    url: "https://www.canva.com/ai-image-generator/"
+  },
+
+  {
+    name: "Runway",
+    icon: "R",
+    category: "Video",
+    description:
+      "Generate and transform video using advanced AI creative tools.",
+    tags: ["Video","Creative"],
+    price: "Free + Paid",
+    url: "https://runwayml.com/"
+  },
+
+  {
+    name: "Pika",
+    icon: "P",
+    category: "Video",
+    description:
+      "Create and transform short AI-generated videos.",
+    tags: ["Video","Effects"],
+    price: "Free + Paid",
+    url: "https://pika.art/"
+  },
+
+  {
+    name: "ElevenLabs",
+    icon: "♫",
+    category: "Audio",
+    description:
+      "AI voice generation, text-to-speech, dubbing and audio tools.",
+    tags: ["Voice","Speech"],
+    price: "Free + Paid",
+    url: "https://elevenlabs.io/"
+  },
+
+  {
+    name: "Suno",
+    icon: "♪",
+    category: "Audio",
+    description:
+      "Generate complete AI songs from simple text prompts.",
+    tags: ["Music","Audio"],
+    price: "Free + Paid",
+    url: "https://suno.com/"
+  },
+
+  {
+    name: "GitHub Copilot",
+    icon: "⌘",
+    category: "Coding",
+    description:
+      "AI coding assistant that helps developers write and understand code.",
+    tags: ["Code","IDE"],
+    price: "Paid",
+    url: "https://github.com/features/copilot"
+  },
+
+  {
+    name: "Cursor",
+    icon: "▣",
+    category: "Coding",
+    description:
+      "AI-first code editor designed for agentic software development.",
+    tags: ["Code","Editor"],
+    price: "Free + Paid",
+    url: "https://www.cursor.com/"
+  },
+
+  {
+    name: "Replit",
+    icon: "R",
+    category: "Coding",
+    description:
+      "Build, code and deploy applications with AI assistance.",
+    tags: ["Apps","Coding"],
+    price: "Free + Paid",
+    url: "https://replit.com/"
+  },
+
+  {
+    name: "Notion AI",
+    icon: "N",
+    category: "Productivity",
+    description:
+      "AI features for documents, notes, knowledge and productivity.",
+    tags: ["Notes","Work"],
+    price: "Free + Paid",
+    url: "https://www.notion.com/product/ai"
+  },
+
+  {
+    name: "Gamma",
+    icon: "G",
+    category: "Productivity",
+    description:
+      "Generate presentations, documents and webpages with AI.",
+    tags: ["Slides","Docs"],
+    price: "Free + Paid",
+    url: "https://gamma.app/"
+  },
+
+  {
+    name: "Zapier AI",
+    icon: "⚡",
+    category: "Automation",
+    description:
+      "Automate workflows and connect applications with AI.",
+    tags: ["Automation","Workflows"],
+    price: "Free + Paid",
+    url: "https://zapier.com/ai"
+  },
+
+  {
+    name: "Make",
+    icon: "M",
+    category: "Automation",
+    description:
+      "Visual platform for automating apps, APIs and AI services.",
+    tags: ["Automation","API"],
+    price: "Free + Paid",
+    url: "https://www.make.com/"
+  },
+
+  {
+    name: "Copy.ai",
+    icon: "✎",
+    category: "Writing",
+    description:
+      "AI-powered content and workflow platform for marketing teams.",
+    tags: ["Marketing","Copy"],
+    price: "Free + Paid",
+    url: "https://www.copy.ai/"
+  },
+
+  {
+    name: "Jasper",
+    icon: "J",
+    category: "Writing",
+    description:
+      "AI marketing platform for creating branded content.",
+    tags: ["Marketing","Content"],
+    price: "Paid",
+    url: "https://www.jasper.ai/"
+  },
+
+  {
+    name: "Otter.ai",
+    icon: "O",
+    category: "Meetings",
+    description:
+      "Transcribe meetings, create summaries and extract action items.",
+    tags: ["Transcription","Meetings"],
+    price: "Free + Paid",
+    url: "https://otter.ai/"
+  },
+
+  {
+    name: "Descript",
+    icon: "D",
+    category: "Video",
+    description:
+      "Edit video and audio by editing the transcript.",
+    tags: ["Video","Podcast"],
+    price: "Free + Paid",
+    url: "https://www.descript.com/"
+  }
+
+];
+
+let activeCategory = "All";
+
+const categories = [
+  "All",
+  ...new Set(tools.map(tool => tool.category))
+];
+
+const categoryContainer =
+  document.getElementById("categories");
+
+const grid =
+  document.getElementById("toolsGrid");
+
+const search =
+  document.getElementById("search");
+
+const resultCount =
+  document.getElementById("resultCount");
+
+const toolCount =
+  document.getElementById("toolCount");
+
+toolCount.textContent = tools.length + "+";
+
+/* CREATE CATEGORY BUTTONS */
+
+function renderCategories() {
+
+  categoryContainer.innerHTML = "";
+
+  categories.forEach(category => {
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "category " +
+      (category === activeCategory
+        ? "active"
+        : "");
+
+    button.textContent = category;
+
+    button.onclick = () => {
+
+      activeCategory = category;
+
+      renderCategories();
+      renderTools();
+
+    };
+
+    categoryContainer.appendChild(button);
+
+  });
+
+}
+
+/* RENDER TOOLS */
+
+function renderTools() {
+
+  const query =
+    search.value
+      .trim()
+      .toLowerCase();
+
+  const filteredTools =
+    tools.filter(tool => {
+
+      const matchesCategory =
+        activeCategory === "All" ||
+        tool.category === activeCategory;
+
+      const searchableText =
+        [
+          tool.name,
+          tool.category,
+          tool.description,
+          ...tool.tags
+        ]
+        .join(" ")
+        .toLowerCase();
+
+      return (
+        matchesCategory &&
+        (!query ||
+          searchableText.includes(query))
+      );
+
+    });
+
+  resultCount.textContent =
+    `${filteredTools.length} tool${
+      filteredTools.length !== 1
+        ? "s"
+        : ""
+    } found`;
+
+  if (!filteredTools.length) {
+
+    grid.innerHTML = `
+      <div class="empty">
+        <div style="font-size:35px;margin-bottom:10px">
+          ⌕
+        </div>
+
+        No AI tools found.
+
+        <br>
+
+        Try another search or category.
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML =
+    filteredTools
+      .map(tool => `
+
+        <article class="tool-card">
+
+          <div class="tool-icon">
+            ${tool.icon}
+          </div>
+
+          <h3>
+            ${tool.name}
+          </h3>
+
+          <p>
+            ${tool.description}
+          </p>
+
+          <div class="tags">
+
+            ${tool.tags
+              .map(tag =>
+                `<span class="tag">
+                  ${tag}
+                </span>`
+              )
+              .join("")}
+
+          </div>
+
+          <div class="tool-bottom">
+
+            <span class="price">
+              ${tool.price}
+            </span>
+
+            <a
+              class="visit"
+              href="${tool.url}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit ↗
+            </a>
+
+          </div>
+
+        </article>
+
+      `)
+      .join("");
+
+}
+
+/* SEARCH */
+
+search.addEventListener(
+  "input",
+  renderTools
+);
+
+/* "/" SEARCH SHORTCUT */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "/" &&
+      document.activeElement !== search
+    ) {
+
+      event.preventDefault();
+
+      search.focus();
+
+    }
+
+  }
+);
+
+/* INITIALIZE */
+
+renderCategories();
+renderTools();
+
+</script>
+
+</body>
+</html>
